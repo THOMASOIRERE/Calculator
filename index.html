@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+  <script src="https://kit.fontawesome.com/859082229d.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    input, button {
+      font-size: 18px;
+      margin: 5px;
+      padding: 10px;
+    }
+    .copyright{
+        width: 100%;
+        color: #ffff;
+        text-align: center;
+        padding: 25px 0;
+        background: #262626;
+        font-size: 18px;
+        font-weight:300;
+        margin-top:700px;
+        margin-bottom:10px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .copyright i{
+        color:red;
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    <input type="text" id="display" disabled>
+    <br>
+    <button onclick="clearDisplay()">C</button>
+    <button onclick="appendToDisplay('/')">/</button>
+    <br>
+    <button onclick="appendToDisplay('7')">7</button>
+    <button onclick="appendToDisplay('8')">8</button>
+    <button onclick="appendToDisplay('9')">9</button>
+    <button onclick="appendToDisplay('*')">*</button>
+    <br>
+    <button onclick="appendToDisplay('4')">4</button>
+    <button onclick="appendToDisplay('5')">5</button>
+    <button onclick="appendToDisplay('6')">6</button>
+    <button onclick="appendToDisplay('-')">-</button>
+    <br>
+    <button onclick="appendToDisplay('1')">1</button>
+    <button onclick="appendToDisplay('2')">2</button>
+    <button onclick="appendToDisplay('3')">3</button>
+    <button onclick="appendToDisplay('+')">+</button>
+    <br>
+    <button onclick="appendToDisplay('0')">0</button>
+    <button onclick="calculateResult()">=</button>
+  </div>
+
+  <script>
+    function appendToDisplay(value) {
+      document.getElementById('display').value += value;
+    }
+
+    function clearDisplay() {
+      document.getElementById('display').value = '';
+    }
+
+    function calculateResult() {
+      try {
+        document.getElementById('display').value = eval(document.getElementById('display').value);
+      } catch (error) {
+        document.getElementById('display').value = 'Error';
+      }
+    }
+  </script>
+  <div class="copyright">
+    <p>Copyright &#169 2024 Made With <i class="fa-solid fa-heart"></i> by Thomas Oirere</p>
+</div>
+</body>
+</html>
